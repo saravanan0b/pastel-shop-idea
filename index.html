@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oat & Mist — Soft-Toned Lifestyle Essentials</title>
+  <meta name="description"
+    content="A minimal pastel shop featuring soft-toned lifestyle goods for your home, tableware, and apparel." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>Free shipping on all orders over ₹1000 &bull; Softly crafted for everyday ritual</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="#" id="brand-logo" class="logo">Oat & Mist</a>
+        <span class="tagline">Soft-toned essentials</span>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-link active" data-view="all">All Goods</button>
+        <button class="nav-link" data-view="Home">Home</button>
+        <button class="nav-link" data-view="Tableware">Tableware</button>
+        <button class="nav-link" data-view="Apparel">Apparel</button>
+        <button class="nav-link" data-view="exclusives">Exclusives</button>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Auth Button -->
+        <button id="auth-btn" class="btn btn-outline">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          <span id="auth-label">Sign In</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button id="cart-btn" class="btn btn-primary cart-trigger">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span>Cart</span>
+          <span id="cart-badge" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Hero Banner -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="subhead">Curated Collection</span>
+        <h1 class="hero-title">Quiet objects, soft tones.</h1>
+        <p class="hero-desc">Everyday essentials washed in muted sage, blush, oat, mist, and lavender hues. Designed to bring calm
+          to your everyday spaces.</p>
+      </div>
+    </section>
+
+    <!-- Filters Bar -->
+    <section class="filter-section">
+      <div class="filter-container">
+        <!-- Category Filters -->
+        <div class="filter-group">
+          <span class="filter-label">Category:</span>
+          <div class="pill-group" id="category-pills">
+            <button class="pill active" data-category="all">All Items</button>
+            <button class="pill" data-category="Home">Home</button>
+            <button class="pill" data-category="Tableware">Tableware</button>
+            <button class="pill" data-category="Apparel">Apparel</button>
+          </div>
+        </div>
+
+        <!-- Tone Filters -->
+        <div class="filter-group">
+          <span class="filter-label">Tone Palette:</span>
+          <div class="pill-group" id="tone-pills">
+            <button class="pill active" data-tone="all">All Tones</button>
+            <button class="pill tone-sage-pill" data-tone="sage"><span class="dot dot-sage"></span>Sage</button>
+            <button class="pill tone-blush-pill" data-tone="blush"><span class="dot dot-blush"></span>Blush</button>
+            <button class="pill tone-oat-pill" data-tone="oat"><span class="dot dot-oat"></span>Oat</button>
+            <button class="pill tone-mist-pill" data-tone="mist"><span class="dot dot-mist"></span>Mist</button>
+            <button class="pill tone-lavender-pill" data-tone="lavender"><span class="dot dot-lavender"></span>Lavender</button>
+          </div>
+        </div>
+
+        <!-- Search / Exclusives filter -->
+        <div class="filter-group right">
+          <button id="toggle-exclusives-btn" class="pill pill-toggle">
+            <span>Only Exclusives</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="products-section">
+      <div class="section-header">
+        <h2 id="view-title" class="section-title">All Goods</h2>
+        <span id="product-count" class="count-badge">8 items</span>
+      </div>
+
+      <div id="product-grid" class="product-grid">
+        <!-- Injected via app.js -->
+      </div>
+
+      <!-- Empty state container -->
+      <div id="empty-state" class="empty-state hidden">
+        <svg class="icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 12h8" />
+        </svg>
+        <h3>No goods match your filter</h3>
+        <p>Try selecting a different category or soft tone palette.</p>
+        <button id="reset-filters-btn" class="btn btn-outline">Reset Filters</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Slide-Over Drawer Overlay -->
+  <div id="cart-overlay" class="overlay hidden"></div>
+
+  <!-- Cart Slide-Over Drawer -->
+  <aside id="cart-drawer" class="drawer hidden">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 0 1-8 0" />
+        </svg>
+        <h2>Your Bag</h2>
+      </div>
+      <button id="close-cart-btn" class="icon-btn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div id="cart-items-container" class="drawer-body">
+      <!-- Injected via app.js -->
+    </div>
+
+    <div class="drawer-footer">
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal" class="amount">₹0.00</span>
+      </div>
+      <div class="summary-line text-muted">
+        <span>Shipping</span>
+        <span>Calculated at checkout</span>
+      </div>
+      <div class="summary-line total-line">
+        <span>Total</span>
+        <span id="cart-total" class="amount">₹0.00</span>
+      </div>
+
+      <button id="checkout-btn" class="btn btn-primary btn-block">
+        Proceed to Checkout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">
+    <span id="toast-message">Item added to your bag</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo">Oat & Mist</span>
+        <p>Simplicity in design. Crafted with gentle tones for peaceful spaces.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="#">Home Essentials</a></li>
+            <li><a href="#">Tableware</a></li>
+            <li><a href="#">Apparel</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Philosophy</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span> Oat & Mist 2026. Pure HTML, CSS & JS.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
