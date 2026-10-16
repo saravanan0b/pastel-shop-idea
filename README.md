@@ -1,2 +1,2 @@
 # Website preview:
-[pastel-shop.netlify.app]()
+[previewe](https://pastel-shop.netlify.app)
